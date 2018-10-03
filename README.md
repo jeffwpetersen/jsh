@@ -1,1 +1,1 @@
-Susy 3 Site framework
+Juniper Studio Home Jekyll site build
