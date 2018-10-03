@@ -1,0 +1,256 @@
+---
+---
+
+@import "normalize";
+@import "susy";
+@import "vendor/plumber";
+@import "breakpoint";
+@import "fonts";
+@import "font-awesome/font-awesome";
+@import "base";
+@import "plugins/svg-grid";
+@import "baseline-grid";
+@import "structure";
+@import "style";
+@import "nav";
+
+
+.main-section {
+  //@include baseline-grid();
+  padding-bottom: 2rem;
+  padding-top:  2rem;
+}
+.site-width {
+   //background: susy-svg-grid() no-repeat scroll;
+}
+
+
+html {
+  // set font size for responsive type
+  font-size: $base-font-size;
+  background-color: darkgray;
+}
+
+body {
+  font-family: $body-font;
+  text-rendering: optimizeLegibility;
+}
+
+.outerspace {
+  background-color: white;
+}
+
+
+/*
+* in progress
+*/
+
+
+
+
+/*
+*  Juniper studio
+*/
+
+
+
+
+
+
+.pager {
+  position: absolute;
+  z-index: 100;
+  bottom: 2rem;
+  right: 0;
+  text-align: center;
+  img {
+  }
+  .arrow {
+    background-color: $pink;
+    display: block;
+    border-radius: 55px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: 5vh;
+    padding: 5px;
+    span {
+      background-color: $pink;
+      border: solid 4px white;
+      display: block;
+      border-radius: 50px;
+      width: 90px;
+      margin-left: auto;
+      margin-right: 5vh;
+      padding: 1rem;
+    }
+  }
+}
+
+.pink {
+  color: $pink;
+}
+
+.hidden {
+  display: none;
+}
+
+footer {
+  background-color: $pink;
+  color: $gray-8;
+  min-height: 100vh;
+  color: white;
+  a {
+    color: white;
+  }
+}
+
+header {
+    text-align: center;
+    color: #fff;
+    background-attachment: scroll;
+    background-image: url('/images/header-bg.jpg');
+    background-position: center center;
+    background-repeat: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    background-color: lightgrey;
+    min-height:100vh;
+  padding: 2rem 5rem;
+  padding-top: 10rem;
+  h1.hero {
+    margin: 0px !important;
+    padding: 0px;
+    border-bottom: solid 1px $theme-color;
+    text-align: center;
+    @include plumber(
+            $grid-height: $base-grid-height,
+            $baseline: .9,
+            $font-size: 10,
+            $line-height: 3,
+            $leading-top: 4,
+            $leading-bottom: 1
+    );
+    @include breakpoint($phone) {
+      @include plumber(
+              $grid-height: $base-grid-height,
+              $baseline: .1,
+              $font-size: 5,
+              $line-height: 3,
+              $leading-top: 4,
+              $leading-bottom: 1
+      );
+      padding-bottom: 0;
+      font-size: 12vw;
+    }
+    @include breakpoint($tween) {
+      @include plumber(
+              $font-size: 7.25,
+              $line-height: 1
+      );
+      padding-top: 1rem;
+    }
+    .juniper {
+     font-family: opensans_light;
+    }
+    .studio {
+      font-family: "Helvetica";
+      font-weight: bold;
+      color: white;
+      a {
+        color: white;
+      }
+    }
+    a {
+      color: $pink;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  @include breakpoint($phone) {
+    padding-top: 2rem;
+    padding-bottom: 0rem;
+  }
+
+  .intro-text .intro-heading {
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    font-family: $headline-font;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 50px;
+  }
+  .intro-text .intro-lead-in {
+    margin-bottom: 25px;
+    font-family: $headline-font;
+    font-size: 40px;
+    font-style: italic;
+    line-height: 40px;
+  }
+
+}
+
+.gallery {
+  min-height: 100vh;
+  background-color: #fbfbfb;
+  padding: 5rem 2rem;
+  text-align: center;
+  .grid {
+    align-items: center;
+  }
+  align-items: center;
+}
+
+.footer-contact-us {
+  overflow: hidden;
+  font-family: latohairline;
+  padding-bottom: 2rem;
+  @include breakpoint($phone) {
+    font-family: latoregular;
+  }
+
+  h1 {
+    font-family: latohairline;
+    @include plumber(
+            $grid-height: $base-grid-height,
+            $baseline: $headline-baseline, // https://jamonserrano.github.io/plumber-sass/baselines/
+            $font-size: 14.06,
+            $line-height: 12,
+            $leading-top: 4,
+            $leading-bottom: 1
+    );
+    @include breakpoint($phone) {
+      font-family: latolight;
+      @include plumber(
+              $grid-height: $base-grid-height,
+              $baseline: $headline-baseline,
+              $font-size: 3,
+              $line-height: 3,
+              $leading-top: 6,
+              $leading-bottom: 1
+      );
+    }
+    @include breakpoint($tween) {
+      @include plumber(
+              $grid-height: $base-grid-height,
+              $baseline: $headline-baseline,
+              $font-size: 6,
+              $line-height: 6,
+              $leading-top: 6,
+              $leading-bottom: 2
+      );
+    }
+    @include breakpoint($desktop) {
+      @include plumber(
+              $grid-height: $base-grid-height,
+              $baseline: $headline-baseline,
+              $font-size: 8,
+              $line-height: 10,
+              $leading-top: 5,
+              $leading-bottom: 2
+      );
+    }
+  }
+}

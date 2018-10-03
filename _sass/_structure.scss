@@ -1,0 +1,167 @@
+/*
+* Base structure
+*/
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.outerspace {
+  min-height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.site-width {
+  max-width: 2620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section {
+  position: relative;
+}
+
+.section {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/*
+* Grid Structure
+*/
+
+.main-section {
+  .layout-container {
+    //background: susy-svg-grid() no-repeat scroll;
+    display: grid;
+    grid-template-columns: repeat(12, 2fr);
+    grid-column-gap: 2rem;
+    //grid-auto-rows: 50px 350px 50px;
+    //grid-template-columns: 200px 1fr 200px;
+    //grid-template-rows: auto 1fr auto;
+    main {
+      grid-column: span 4;
+    }
+    aside {
+      grid-column: span 4;
+      //background: susy-svg-grid() no-repeat scroll;
+    }
+    @include breakpoint($phone) {
+      display: flex;
+      flex-direction: column;
+    }
+    @include breakpoint($tween) {
+      .aside-first {
+        grid-column: span 12;
+        text-align: center;
+        padding-left: 20%;
+        padding-right: 20%;
+        border-bottom: solid 2px $pink;
+        p {
+          line-height: 2rem;
+        }
+      }
+      main {
+        grid-column: span 6;
+      }
+      .aside-second {
+        grid-column: span 6;
+      }
+    }
+    @include breakpoint($desktop) {
+    }
+    @include breakpoint($big) {
+    }
+  }
+}
+
+/*
+* Grid Layouts
+*/
+
+.one-three-one {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-column-gap: 2rem;
+  .first-item {
+    grid-column: 1;
+  }
+  .second-item {
+    grid-column: 2;
+  }
+  .third-item {
+    grid-column: 1;
+  }
+  @include breakpoint($phone) {
+    display: flex;
+    flex-direction: column;
+  }
+  @include breakpoint($tween) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.two-things {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-column-gap: 2rem;
+  align-items: flex-start;
+  .first-thing {
+    grid-column: 1;
+  }
+  .second-thing {
+    grid-column: 2;
+  }
+  @include breakpoint($phone) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.align-center {
+  height: 100vh;
+  align-items: center;
+}
+
+
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
+  grid-gap: 4em 4em;
+  padding: 3em;
+  .grid-item {
+    img {
+      width: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+  @include breakpoint($phone) {
+    padding: 0;
+  }
+  @include breakpoint($desktop) {
+    grid-template-columns: repeat(auto-fill, minmax(25%, 2fr));
+  }
+  @include breakpoint($big) {
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+  }
+}
+
